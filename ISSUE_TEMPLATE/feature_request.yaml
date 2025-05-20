@@ -1,0 +1,288 @@
+name: "[Feature] Nova funcionalidade para o Sistema"
+description: "Template para funcionalidades novas para o sistema por meio de (Histórias de Usuário). Descreva sua solicitação com clareza para o time de desenvolvimento."
+title: "[Feature] "
+type: "Feature"
+labels:
+  - "Time: devraiders"
+  - "Tipo: feature"
+  - "Status: triagem necessária"
+assignees: []
+projects:
+  - "Dev-Refinamento"
+body:
+  - type: textarea
+    id: user-story-summary-description
+    attributes:
+      label: "1. Descrição (User Story)"
+      description: |
+        **Importante:** Descreva a necessidade da perspectiva da persona. *Copie, cole e preencha no seguinte formato*:
+        ```
+        EU COMO [Descreva a Persona]
+        PRECISO QUE [Descreva a Necessidade/Funcionalidade]
+        ENTÃO [Descreva o Benefício/Valor para a Persona].
+        ```
+      placeholder: |
+        **Exemplo:**
+        EU COMO [Gestor]
+        PRECISO QUE [o campo "indPertIRRF" seja adicionado no sistema para o evento S-1000]
+        ENTÃO [o sistema estará atualizado conforme o leiaute do eSocial (1.3)].
+      render: markdown
+    validations:
+      required: true
+
+  - type: textarea
+    id: user-story-detailed-description
+    attributes:
+      label: "2. Descrição detalhada / Notas técnicas (Opcional)"
+      description: "Forneça detalhes adicionais sobre o contexto da história do usuário para auxiliar a equipe de desenvolvimento."
+      placeholder: |
+        **Exemplo:**
+        Conforme a nova nota técnica, S-1.3 03/2025 (publicada em janeiro de 2025), foram introduzidos novos campos e ajustes importantes no leiaute do eSocial. Com isso, os campos mencionados precisam ser implementados seguindo as regras "XYZ" que impactam ...
+    validations:
+      required: false
+
+  - type: textarea
+    id: system-links
+    attributes:
+      label: "3. Links do sistema"
+      description: "Inclua os links internos das telas relevantes em que esta nova funcionalide poderá ser adicionada."
+      placeholder: |
+        **Exemplo:**
+        https://cloud.vobys.com.br/adm/defensoria/gerencial
+        https://siape.sead.pi.gov.br/org/seduc/esocial/envio/eventos
+    validations:
+      required: true
+
+  - type: markdown
+    id: reproduction-media-guidance
+    attributes:
+      value: "**Imagens e Vídeos:** É muito útil vermos o que você viu, sugestões visuais ou protótipos! Por favor, adicione prints de tela ou pequenas gravações (vídeos) **nos comentários desta solicitação APÓS criá-la**. Não se preocupe em colocá-los aqui diretamente."
+
+  - type: textarea
+    id: system-fields
+    attributes:
+      label: "4. Campos do sistema (opcional)"
+      description: |
+        Liste os campos relevantes da(s) tela(s) que foi(ram) mencionada(s).
+        Sugestão: utilize o link da Wiki do sistema para maior detalhamento, se necessário ([https://wiki.vobys.com.br/](https://wiki.vobys.com.br/)).
+        Esta informação ajuda o time de desenvolvimento a localizar e entender os elementos da interface.
+      placeholder: |
+        **Link da wiki**: https://wiki.vobys.com.br/#2.1.1.1.1%20Dados%20Pessoais
+        **Campos da tela**
+           - Tipo de Rubrica E-Social
+           - Natureza da Rubrica
+           - Fim da Validade
+           - Indicador de pertencimento do IRRF (campo novo)
+             -**Valores válidos:**
+               - S - Sim
+                -**Validação:** Preenchimento exclusivo para o empregador com natureza jurídica igual a [126-0, 127-9, 129-5, 130-9].
+    validations:
+      required: false
+
+  - type: dropdown
+    id: client-name
+    attributes:
+      label: "5. Clientes que poderão utilizar essa(s) nova(s) funcionalidade(s)."
+      description: "Selecione o(s) cliente(s):"
+      multiple: true
+      options:
+        - Piauí
+        - DPE
+        - GDF
+        - Vobys (solicitação interna)
+        - Outro
+    validations:
+      required: true
+
+  - type: dropdown
+    id: user_reach_scope
+    attributes:
+      label: "6. Quantos Usuários ou Segmentos de Clientes serão Beneficiados Diretamente?"
+      description: "Estime o número de usuários (ex: todos, um departamento específico, X% dos clientes) ou quais segmentos de clientes (ex: Piauí, DPE, GDF) serão diretamente impactados por esta funcionalidade. Forneça uma estimativa quantitativa sempre que possível."
+      options:
+        - Todos os usuários do sistema
+        - Múltiplos Clientes/Grandes Departamentos (especificar quais nos detalhes)
+        - Um Cliente/Departamento Específico (especificar qual nos detalhes)
+        - Um grande grupo de usuários (>50 usuários)
+        - Um grupo médio de usuários (10-50 usuários)
+        - Um pequeno grupo de usuários (<10 usuários)
+        - Outro (descrever abaixo)
+    validations:
+      required: true
+
+      
+  - type: textarea
+    id: user_reach_scope_details 
+    attributes:
+      label: "Detalhes Adicionais sobre o Alcance (se 'Outro' ou necessário)"
+      description: "Se selecionou 'Outro' ou precisa detalhar os segmentos/clientes, por favor, especifique aqui."
+    validations:
+      required: false
+
+  - type: textarea
+    id: strategic_alignment_impact
+    attributes:
+      label: "7. Qual o Alinhamento Estratégico e Impacto Potencial no Negócio desta funcionalidade?"
+      description: "Descreva como esta funcionalidade contribui para os objetivos estratégicos da Vobys (ex: aumento de receita, redução de custos, entrada em novo mercado, satisfação do cliente-chave X, melhoria de eficiência operacional) e o impacto esperado no negócio."
+      placeholder: "Ex: A funcionalidade X permitirá reduzir em Y% os custos de suporte ao automatizar o processo Z, alinhando-se ao objetivo estratégico de otimização de custos. Espera-se um saving anual de R$ A."
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem_solution_value
+    attributes:
+      label: "8. Qual Problema Principal esta Funcionalidade Resolve ou Qual Valor Agrega aos Usuários Afetados?"
+      description: "Descreva o principal problema que será resolvido ou o valor principal que será agregado. Quão significativo é este benefício para os usuários que serão impactados? (Ex: Elimina X horas de trabalho manual por semana, Permite uma nova capacidade crítica Y, Reduz Z% de erros em determinada tarefa)."
+      placeholder: "Ex: Atualmente, o processo de conciliação leva 4 horas diárias. Com esta funcionalidade, o tempo será reduzido para 30 minutos, liberando o usuário para atividades mais estratégicas e diminuindo a chance de erros por fadiga."
+    validations:
+      required: true
+
+  - type: dropdown
+    id: workaround_availability_impact
+    attributes:
+      label: "9. Existe uma Solução de Contorno (Workaround) Viável Atualmente?"
+      description: "Se sim, descreva brevemente a solução de contorno e o impacto de utilizá-la (ex: tempo extra significativo, alto risco de erro, grande insatisfação do usuário, necessidade de ferramentas externas)."
+      options:
+        - Não, não existe workaround viável. O trabalho está bloqueado.
+        - Sim, existe um workaround, mas é muito difícil, demorado ou com impacto negativo significativo.
+        - Sim, existe um workaround com dificuldade/impacto moderado.
+        - Sim, existe um workaround fácil e com baixo impacto.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: frequency_of_need_or_problem
+    attributes:
+      label: "10. Com que Frequência esta Funcionalidade seria Utilizada ou o Problema que ela Resolve Ocorre?"
+      description: "Indique a frequência com que os usuários necessitariam desta funcionalidade ou encontrariam o problema que ela visa solucionar, considerando os usuários que seriam afetados."
+      options:
+        - Constantemente / Múltiplas vezes ao dia (por usuário afetado)
+        - Diariamente (por usuário afetado)
+        - Semanalmente (por usuário afetado)
+        - Mensalmente (por usuário afetado)
+        - Raramente / Apenas em situações ou períodos específicos
+        - Não se aplica (ex: configuração única, funcionalidade de uso pontual)
+    validations:
+      required: true
+
+  - type: textarea
+    id: urgency_time_criticality
+    attributes:
+      label: "11. Qual a Urgência Fundamentada e Criticidade Temporal desta Funcionalidade?"
+      description: "Existem prazos regulatórios, contratuais, janelas de oportunidade de mercado, ou dependências críticas de outros projetos/funcionalidades que tornam esta funcionalidade urgente? Se sim, especifique as datas limite e as consequências diretas do não atendimento a esses prazos."
+      placeholder: "Ex: Necessário até DD/MM/AAAA devido à nova legislação XYZ, sob pena de multa. Ou: Bloqueia o desenvolvimento da funcionalidade ABC, que tem entrega prevista para a sprint Z."
+    validations:
+      required: true
+
+  - type: dropdown
+    id: requester_perceived_effort
+    attributes:
+      label: "12. Qual sua Percepção Inicial do Esforço para Implementar esta Funcionalidade?"
+      description: "Com base no seu entendimento do que precisa ser feito, você acredita que esta é uma funcionalidade Pequena, Média, Grande ou Muito Grande em termos de esforço de desenvolvimento? (Esta é uma percepção inicial e será refinada e estimada pelo time técnico (desenvolvimento))."
+      options:
+        - (Muito Pequeno) Ajuste simples, provavelmente poucas horas de desenvolvimento.
+        - (Pequeno) Requer alguns dias de trabalho de desenvolvimento.
+        - (Médio) Requer algumas semanas de trabalho de desenvolvimento.
+        - (Grande) Requer um ou mais meses de trabalho de desenvolvimento.
+        - (Muito Grande) Projeto complexo, provavelmente múltiplos meses e/ou grande equipe.
+        - Não sei estimar.
+    validations:
+      required: true
+
+  - type: textarea
+    id: technical-notes
+    attributes:
+      label: "13. Notas Técnicas (Opcional) - Time Dev"
+      description: "Notas técnicas, arquitetura, implementação, links relevantes. Para o time de desenvolvimento."
+      placeholder: |
+        **Exemplo:**
+        - Implementar validação da NT 03/2025.
+        - Persistir na tabela `tb_evento_s1000`.
+        - Validar natureza jurídica [126-0, ...].
+        - Link NT: https://www.gov.br/esocial/pt-br/documentacao-tecnica/leiautes-esocial-versao-1-3-nt-03-2025/index.html
+        - Considerar integração X.
+    validations:
+      required: false
+
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: "14. Critérios de Aceite (Gherkin)"
+      description: |
+        Descreva os critérios de aceitação da entrega utilizando [Gherkin](https://docs.cucumber.io/gherkin/reference/).
+        Inclua cenários de sucesso e exceção. *Copie, cole e preencha no seguinte formato*:
+        ```gherkin
+        Funcionalidade: [Nome]
+          Contexto: [Pré-condições]
+          [n] Cenário: [Nome]
+              Dado que [Contexto]
+              Quando [Ação]
+              Então [Resultado]
+        ```
+      placeholder: |
+        **Exemplo:**
+        ```gherkin
+        Funcionalidade: Adicionar campo indPertIRRF
+
+        [1] Cenário: Campo indPertIRRF preenchido corretamente
+            Dado que estou na tela do evento S-1000
+              E o empregador é elegível
+            Quando preencho o campo com "S"
+            Então o sistema aceita o valor
+
+        [2] Cenário: Campo indPertIRRF obrigatório para empregador elegível
+            Dado que estou na tela do evento S-1000
+              E o empregador é elegível
+            Quando salvo sem preencher o campo
+            Então o sistema exibe erro de validação
+
+        [3] Cenário: Campo indPertIRRF não aplicável para empregador não elegível
+            Dado que estou na tela do evento S-1000
+              E o empregador não é elegível
+            Quando tento preencher o campo
+            Então o campo está desabilitado ou oculto
+              E ao salvar, nenhum erro é exibido.
+        ```
+      render: markdown
+    validations:
+      required: true
+
+  - type: textarea
+    id: tasks-and-sub-issues
+    attributes:
+      label: "15. tividades / Sub-tarefas (Opcional) - Time Dev"
+      description: "Liste tarefas para o time (dev, QA, etc.) para completar a feature."
+      placeholder: |
+        **Exemplos:**
+        - [ ] Refinar com PO
+        - [ ] Backend
+        - [ ] Frontend
+        - [ ] Testes unitários/integração
+        - [ ] Testes E2E
+        - [ ] Testes exploratórios
+        - [ ] Documentação
+        - [ ] Code review # Placeholder reduzido
+    validations:
+      required: false
+
+
+  - type: textarea
+    id: original-reporter
+    attributes:
+      label: "16. Quem solicitou essa funcionalidade Originalmente? (Opcional)"
+      description: "Se outra pessoa solicitou primeiro, mencione o usuário do GitHub dela (Ex: `@username`) ou mencione o nome e órgão/empresa."
+      placeholder: |
+        Ex: @fulano - SEAD
+        Ex: @username - Vobys
+        
+      render: markdown
+    validations:
+      required: false
+
+  - type: markdown
+    id: final-notes
+    attributes:
+      value: |
+        **Obrigado por incluir essa nova funcionalidade!** Esta solicitação será registrada em seu nome no GitHub.
+        A clareza e a precisão das informações que você forneceu (especialmente a história de usuário) são essenciais para agilizar esse processo de criação e desenvolvimento da(s) funcionalidade(s).
+        Sua colaboração ajuda a tornar a plataforma Vobys melhor para todos!
